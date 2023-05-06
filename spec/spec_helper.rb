@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "kindle_notebook"
+require "kindle-notebook"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

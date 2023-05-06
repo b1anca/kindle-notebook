@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in kindle_notebook.gemspec
+# Specify your gem's dependencies in kindle-notebook.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

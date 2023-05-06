@@ -3,21 +3,21 @@
 require_relative "lib/kindle_notebook/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "kindle_notebook"
+  spec.name = "kindle-notebook"
   spec.version = KindleNotebook::VERSION
   spec.authors = ["Bianca Vieira"]
-  spec.email = ["vbieira@outlook.com"]
+  spec.email = ["bncvr@outlook.com"]
 
   spec.summary = "Kindle Notebook"
   spec.description = "Fetch your Kindle Highlights along with their context using the Selenium Webdriver"
-  spec.homepage = "https://github.com/vbieira/kindle_notebook"
+  spec.homepage = "https://github.com/b1anca/kindle-notebook"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/vbieira/kindle_notebook"
+  spec.metadata["source_code_uri"] = "https://github.com/b1anca/kindle-notebook"
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
