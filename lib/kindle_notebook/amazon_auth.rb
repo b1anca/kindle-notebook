@@ -2,52 +2,66 @@
 
 module KindleNotebook
   class AmazonAuth
-    def initialize
-      @auth_session = Capybara::Session.new(KindleNotebook.configuration.selenium_driver.to_sym)
+    def initialize(email:, password:)
+      @email = email
+      @password = password
     end
 
     def sign_in
-      auth_session.visit(KindleNotebook.configuration.url)
-      return auth_session if valid_cookies?
+      session.visit(KindleNotebook.configuration.url)
+      return session if valid_cookies?
 
       submit_sign_in_form
-      auth_session.save_cookies
-      auth_session
+      submit_otp_form if mfa?
+      session.save_cookies
+      puts "You're signed in!"
     end
 
     private
 
-    attr_reader :auth_session
+    attr_reader :email, :password
+
+    def session
+      KindleNotebook.session
+    end
 
     def valid_cookies?
-      auth_session.find_latest_cookie_file
-      auth_session.restore_cookies
-      auth_session.refresh
-      auth_session.has_current_path?("/kindle-library")
+      session.find_latest_cookie_file
+      session.restore_cookies
+      session.refresh
+      session.has_current_path?("/kindle-library")
     end
 
     def submit_otp_form
       print "Enter OTP: "
-      mfa_code = gets.chomp
-      auth_session.fill_in("auth-mfa-otpcode", with: mfa_code)
-      auth_session.first("#auth-signin-button").click
+      otp = gets.chomp
+      session.fill_in("auth-mfa-otpcode", with: otp)
+      session.first("#auth-signin-button").click
+      check_errors
     end
 
     def submit_sign_in_form
-      auth_session.click_button("Sign in with your account", match: :first)
+      session.click_button("Sign in with your account", match: :first)
       fill_in_credentials
-      auth_session.check("rememberMe")
-      auth_session.first("#signInSubmit").click
-      submit_otp_form if mfa?
+      session.check("rememberMe")
+      session.first("#signInSubmit").click
+      check_errors
     end
 
     def fill_in_credentials
-      auth_session.fill_in("ap_email", with: KindleNotebook.configuration.login)
-      auth_session.fill_in("ap_password", with: KindleNotebook.configuration.password)
+      session.fill_in("ap_email", with: email)
+      session.fill_in("ap_password", with: password)
     end
 
     def mfa?
-      auth_session.current_path.match?(%r{ap/mfa})
+      session.current_path.match?(%r{ap/mfa})
+    end
+
+    def check_errors
+      return unless session.all("h4", text: "There was a problem").any?
+
+      message = session.all("div", class: "a-alert-content").map(&:text).join(", ") || "There was a problem"
+      raise StandardError, message
     end
   end
 end

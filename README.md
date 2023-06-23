@@ -20,9 +20,15 @@ $ gem install kindle-notebook
 
 ## Usage
 
-To get the highlights from a book:
+Sign in:
 ```rb
-books = KindleNotebook::Client.books
+client = KindleNotebook::Client.new
+client.sign_in
+```
+
+Get the highlights from a book:
+```rb
+books = client.books
 book = books.first.fetch_highlights
 book.highlights
 ```
@@ -59,7 +65,7 @@ Highlight:
 Book CSV:
 ```csv
 text,page,context,book_asin,raw_text,raw_context
-journald,120,,B09FJ3411G,"journald,",
+journald,120,"If you get stuck, the logging component of systemd, called journald, can also help.",B09FJ3411G,"journald,","used, for example. If you get stuck, the logging component of systemd, called journald, can also help. This journald command displays the last 20 entries in the"
 swarm,225,"Docker Swarm In this chapter, you're going to learn how to create and use a Docker",B09FJ3411G,swarm.,"Docker Swarm In this chapter, you're going to learn how to create and use a Docker"
 ```
 

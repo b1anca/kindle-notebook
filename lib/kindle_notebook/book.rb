@@ -31,8 +31,7 @@ module KindleNotebook
 
     def open_book
       session.visit(KindleNotebook.configuration.url) unless session.has_selector?("p", text: title)
-      session.find("p", text: title).click
-      sleep 3 # book might take a bit to load
+      session.find("p", text: title, wait: 3).click
     end
   end
 end
