@@ -29,7 +29,8 @@ module KindleNotebook
 
     # fetch all highlights (without context) from notebook
     def notebook_highlights
-      content = session.find("div", class: "notebook-content").all("ion-item")
+      notebook_content = session.all("div", class: "notebook-content")
+      content = notebook_content.any? ? notebook_content.first.all("ion-item") : []
       puts "#{content.count} highlights in this book \n"
       book.highlights_count = content.count
       content.map { |h| parse_notebook_highlight(h) }
@@ -82,7 +83,7 @@ module KindleNotebook
     end
 
     def show_toolbar
-      session.first(:xpath, "//ion-header", wait: 2).hover
+      session.first(:xpath, "//ion-header", wait: 3).hover
     end
 
     def search_highlight_context(text, page)
