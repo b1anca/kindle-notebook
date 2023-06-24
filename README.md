@@ -29,7 +29,8 @@ client.sign_in
 Get the highlights from a book:
 ```rb
 books = client.books
-book = books.first.fetch_highlights
+book = books.first
+book.fetch_highlights
 book.highlights
 ```
 

@@ -9,7 +9,10 @@ module KindleNotebook
 
     def sign_in
       session.visit(KindleNotebook.configuration.url)
-      return session if valid_cookies?
+      if valid_cookies?
+        puts 'Session restored!'
+        return session
+      end
 
       submit_sign_in_form
       submit_otp_form if mfa?

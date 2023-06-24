@@ -11,6 +11,6 @@ KindleNotebook.configure do |config|
   config.password = ENV["AMAZON_PASSWORD"]
   config.selenium_driver = ENV["SELENIUM_DRIVER"]
   config.url = ENV["KINDLE_READER_URL"]
-  config.min_highlight_words = ENV["MIN_HIGHLIGHT_WORDS"]
-  config.max_highlight_words = ENV["MAX_HIGHLIGHT_WORDS"]
+  config.min_highlight_words = ENV["MIN_HIGHLIGHT_WORDS"].to_i
+  config.max_highlight_words = ENV["MAX_HIGHLIGHT_WORDS"].to_i
 end
