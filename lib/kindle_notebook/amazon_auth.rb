@@ -10,7 +10,7 @@ module KindleNotebook
     def sign_in
       session.visit(KindleNotebook.configuration.url)
       if valid_cookies?
-        puts 'Session restored!'
+        puts "Session restored!"
         return session
       end
 
