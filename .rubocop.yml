@@ -9,6 +9,15 @@ Naming/FileName:
   Exclude:
     - lib/kindle-notebook.rb
 
+RSpec/ExampleLength:
+  Max: 7
+
+RSpec/MultipleExpectations:
+  Max: 7
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
 Style/Documentation:
   Enabled: false
 

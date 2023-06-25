@@ -18,6 +18,24 @@ If bundler is not being used to manage dependencies, install the gem by executin
 $ gem install kindle-notebook
 ```
 
+## Configuration
+
+You can either create a `.env` file and add your credentials, the default values will be fetched from this file, or configure the gem, for example in an initializer file.
+
+```rb
+KindleNotebook.configure do |config|
+  config.url = "https://read.amazon.com/"
+  config.login = ENV["AMAZON_EMAIL"]
+  config.password = ENV["AMAZON_PASSWORD"]
+  config.selenium_driver = :firefox
+  config.headless_mode = false
+  config.min_highlight_words = 1
+  config.max_highlight_words = 3
+end
+```
+
+The configuration options `min_highlight_words` and `max_highlight_words` control the range of word count for the highlights.
+
 ## Usage
 
 Sign in:
@@ -75,6 +93,19 @@ swarm,225,"Docker Swarm In this chapter, you're going to learn how to create and
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+### Testing
+
+This gem is using [puffing-billy](https://github.com/oesmith/puffing-billy) for testing which needs the geckodriver executable.  It can be installed with:
+```sh
+$ sudo apt-get install firefox-geckodriver # or
+$ brew install geckodriver
+```
+
+The executable should be in your `PATH`, if it is not you can run the following command (please adapt the location of the geckodriver executable with yours):
+```sh
+$ echo 'export PATH=$PATH:/home/user/.cache/selenium/geckodriver/linux64/0.33.0' >> ~/.zshrc
+ ```
 
 ## Contributing
 
