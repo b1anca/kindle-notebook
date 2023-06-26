@@ -34,7 +34,7 @@ KindleNotebook.configure do |config|
 end
 ```
 
-The configuration options `min_highlight_words` and `max_highlight_words` control the range of word count for the highlights.
+The configuration options `min_highlight_words` and `max_highlight_words` determine the range for a highlight's word count. Highlights with a word count outside this range will not be considered will be filtered out.
 
 ## Usage
 
