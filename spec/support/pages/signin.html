@@ -1,0 +1,165 @@
+<div class="a-section">
+  <div class="a-box">
+    <div class="a-box-inner a-padding-extra-large">
+      <h1 class="a-spacing-small">Sign in</h1>
+      <!-- optional subheading element -->
+
+      <div class="a-row a-spacing-base">
+        <label for="ap_email" class="a-form-label">
+          Email or mobile phone number
+        </label>
+
+        <input
+          type="email"
+          maxlength="128"
+          id="ap_email"
+          name="email"
+          tabindex="1"
+          class="a-input-text a-span12 auth-autofocus auth-required-field"
+        />
+
+        <div
+          id="auth-email-missing-alert"
+          class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-top-mini"
+          role="alert"
+        >
+          <div class="a-box-inner a-alert-container">
+            <i class="a-icon a-icon-alert"></i>
+            <div class="a-alert-content">
+              Enter your email or mobile phone number
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" name="create" value="0" />
+
+      <div class="a-section a-spacing-large">
+        <div class="a-row">
+          <div class="a-column a-span5">
+            <label for="ap_password" class="a-form-label"> Password </label>
+          </div>
+
+          <div class="a-column a-span7 a-text-right a-span-last">
+            <a
+              id="auth-fpp-link-bottom"
+              class="a-link-normal"
+              tabindex="6"
+              href="https://www.amazon.com/ap/forgotpassword?showRememberMe=true&amp;openid.pape.max_auth_age=1209600&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;language=en_US&amp;pageId=amzn_kindle_mykindle_us&amp;mobileBrowserWeblabTreatment=C&amp;openid.return_to=https%3A%2F%2Fread.amazon.com%2Fkindle-library&amp;prevRID=M3KRV7ZPBJ9CQD24WHN8&amp;openid.assoc_handle=amzn_kindle_mykindle_us&amp;openid.mode=checkid_setup&amp;desktopBrowserWeblabTreatment=C&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0"
+            >
+              Forgot your password?
+            </a>
+          </div>
+        </div>
+
+        <input
+          type="password"
+          maxlength="1024"
+          id="ap_password"
+          name="password"
+          tabindex="2"
+          class="a-input-text a-span12 auth-required-field"
+        />
+
+        <div
+          id="auth-password-missing-alert"
+          class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-top-mini"
+          role="alert"
+        >
+          <div class="a-box-inner a-alert-container">
+            <i class="a-icon a-icon-alert"></i>
+            <div class="a-alert-content">Enter your password</div>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" name="encryptedPasswordExpected" />
+
+      <div class="a-section a-spacing-extra-large">
+        <span
+          class="a-button a-button-span12 a-button-primary auth-disable-button-on-submit"
+        >
+          <button
+            id="signInSubmit"
+            class="auth-btn sign-in-btn"
+            onclick="window.location.href = 'http://www.mockedkindlereadurl.com/kindle-library'"
+          >
+            <span>Sign in with your account</span>
+          </button>
+        </span>
+
+        <div id="legalTextRow" class="a-row a-spacing-top-medium a-size-small">
+          By continuing, you agree to Amazon's
+          <a
+            href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=508088"
+            >Conditions of Use</a
+          >
+          and
+          <a
+            href="/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=468496"
+            >Privacy Notice</a
+          >.
+        </div>
+
+        <div class="a-row a-spacing-top-medium">
+          <div class="a-section a-text-left">
+            <label for="auth-remember-me" class="a-form-label">
+              <div data-a-input-name="rememberMe" class="a-checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rememberMe"
+                    value="true"
+                    tabindex="4" /><i class="a-icon a-icon-checkbox"></i
+                  ><span class="a-label a-checkbox-label">
+                    Keep me signed in.
+                    <span
+                      class="a-declarative"
+                      data-action="a-popover"
+                      data-csa-c-type="widget"
+                      data-csa-c-func-deps="aui-da-a-popover"
+                      data-a-popover='{"closeButtonLabel":"","activate":"onclick","header":"\"Keep Me Signed In\" Checkbox","inlineContent":"\u003cp&gt;Choosing \"Keep me signed in\" reduces the number of times you&apos;re asked to Sign-In on this device.\u003c\/p&gt;\n\u003cp&gt;To keep your account secure, use this option only on your personal devices.\u003c\/p&gt;"}'
+                    >
+                      <a
+                        id="remember_me_learn_more_link"
+                        href="javascript:void(0)"
+                        role="button"
+                        class="a-popover-trigger a-declarative"
+                      >
+                        Details
+                        <i class="a-icon a-icon-popover"></i
+                      ></a>
+                    </span> </span
+                ></label>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="a-row a-spacing-top-small a-size-small">
+        By clicking "Sign In", you agree to the
+        <a href="/gp/help/customer/display.html?nodeId=201014950"
+          >Kindle Store Terms of Use</a
+        >.
+      </div>
+
+      <div class="a-divider a-divider-break">
+        <h5 aria-level="5">New to Amazon?</h5>
+      </div>
+      <span
+        id="auth-create-account-link"
+        class="a-button a-button-span12 a-button-base"
+        ><span class="a-button-inner"
+          ><a
+            id="createAccountSubmit"
+            href="https://www.amazon.com/ap/register?showRememberMe=true&amp;openid.pape.max_auth_age=1209600&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;language=en_US&amp;pageId=amzn_kindle_mykindle_us&amp;mobileBrowserWeblabTreatment=C&amp;openid.return_to=https%3A%2F%2Fread.amazon.com%2Fkindle-library&amp;prevRID=M3KRV7ZPBJ9CQD24WHN8&amp;openid.assoc_handle=amzn_kindle_mykindle_us&amp;openid.mode=checkid_setup&amp;desktopBrowserWeblabTreatment=C&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0"
+            class="a-button-text"
+          >
+            Create your Amazon account
+          </a></span
+        ></span
+      >
+    </div>
+  </div>
+</div>
