@@ -22,7 +22,7 @@ RSpec.configure do |config|
       c.url = "http://www.mockedkindlereadurl.com/"
       c.login = "username"
       c.password = "42password"
-      c.selenium_driver = :selenium_billy
+      c.selenium_driver = :selenium_headless_billy
       c.headless_mode = true
       c.min_highlight_words = 1
       c.max_highlight_words = 3
